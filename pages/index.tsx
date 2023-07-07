@@ -75,7 +75,7 @@ const Home: NextPage = () => {
     </WagmiConfig>
 
   <footer className={styles.footer}>
-        Made with ❤️  by <a> 0xakira.eth </a> at 🌈
+        Made with ❤️  by 0xakira.eth at 🌈
   </footer>
 </div>
 </div>
