@@ -4,7 +4,7 @@ import {
   usePrepareContractWrite,
   useContractWrite,
   useWaitForTransaction,
- WagmiConfig, createConfig, configureChains,  useAccount,
+  WagmiConfig, createConfig, configureChains,  useAccount,
   useConnect,
   useDisconnect,
   useEnsAvatar,
@@ -31,14 +31,18 @@ const EthereumAddressColorVisualizer = () => {
           let group = addressWithoutPrefix.slice(i, i + 6);
 
           // pad the group with '0' if less than 6 characters
-          while (group.length < 6) group += "0";
+            if (group.length < 6) {
+                group = group.padEnd(6, "0");
+            };
 
           colorCodes.push(group);
         }
 
-            useEffect(() => {
-        setColors(colorCodes);
-            }, [address]);
+        if (colorCodes.length > 1) {
+        useEffect(() => {
+            setColors(colorCodes);
+                }, [address]);
+        }
         
 
       return (
